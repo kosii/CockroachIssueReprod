@@ -1,5 +1,7 @@
+import java.util.UUID
 import java.util.concurrent.CyclicBarrier
 
+import com.typesafe.config.ConfigFactory
 import model._
 import scalikejdbc._
 import scalikejdbc.config.DBs
@@ -12,6 +14,10 @@ import scala.util.{Random, Try}
 
 
 object Main extends App {
+  val conf = ConfigFactory.load()
+  val parallelism = conf.getInt("app.parallelism")
+  val synchronized = conf.getBoolean("app.synchronized")
+
 
   DBs.setupAll()
   DB.localTx { implicit session =>
@@ -25,27 +31,26 @@ object Main extends App {
     } {
         val created = 1000 * Random.nextGaussian() + System.currentTimeMillis()
         val expires = created + Random.nextDouble() * 1000
-        sql"UPSERT INTO ttl (namespace, key, created, expires) values ('click', ${key.toString},${created.toLong}, ${expires.toLong})".update.apply()
+        sql"UPSERT INTO ttl (namespace, key, created, expires) values ('click', ${UUID.randomUUID().toString},${created.toLong}, ${expires.toLong})".update.apply()
     }
   )
 
-  val num = 5
+  val barrier = new CyclicBarrier(parallelism)
 
   val a: List[Future[Try[Long]]] = (for {
-    i <- 1 to num
+    i <- 1 to parallelism
   } yield {
-    Future(cockroachReplay(s"CLEANER #$i")(implicit session => BlacklistEntry.clean))
+    Future(cockroachReplay(s"CLEANER #$i")(implicit session => BlacklistEntry.clean(barrier, synchronized)))
   }) toList
 
 
-
   val polluter = Future(for {
-    key <- Iterator.from(501)
+    key <- Iterator.from(0)
   } {
     val created = 1000*Random.nextGaussian() + System.currentTimeMillis()
     val expires = created + Random.nextDouble()*1000
     cockroachReplay("INSERTER")({ implicit session =>
-      sql"UPSERT INTO ttl (namespace, key, created, expires) values ('click', ${key.toString},${created.toLong}, ${expires.toLong})".update.apply()
+      sql"UPSERT INTO ttl (namespace, key, created, expires) values ('click', ${UUID.randomUUID().toString},${created.toLong}, ${expires.toLong})".update.apply()
     })
   })
 

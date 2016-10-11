@@ -33,11 +33,15 @@ package object model {
     }
 
 
-    def clean(implicit session: DBSession): Long = {
+    def clean(barrier: CyclicBarrier, synchronized: Boolean)(implicit session: DBSession): Long = {
       val list = sql"SELECT namespace, max(created) AS created FROM ttl GROUP BY namespace"
         .map(rs => (rs.string("namespace"), rs.long("created")))
         .list()
         .apply()
+
+      if (synchronized) {
+        barrier.await()
+      }
 
       list.map { case (namespace, maxCreatedTime) =>
         sql"DELETE FROM ttl WHERE expires < ${maxCreatedTime} and namespace = ${namespace}".update.apply()
