@@ -1,0 +1,49 @@
+E161010 18:22:18.854446 148 util/log/clog.go:1019  [config] file created at: 2016/10/10 18:22:18
+E161010 18:22:18.854446 148 util/log/clog.go:1019  [config] running on machine: bkossovics
+E161010 18:22:18.854446 148 util/log/clog.go:1019  [config] binary: CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+E161010 18:22:18.854446 148 util/log/clog.go:1019  [config] arguments: [./cockroach start --store=node1]
+E161010 18:22:18.854446 148 util/log/clog.go:1019  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg
+E161010 18:22:18.854445 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r1:/{Min-Table/11}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:18.854663 73 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r1:/{Min-Table/11}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:18.860330 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r2:/Table/1{1-2}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:18.864215 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r3:/Table/1{2-3}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:18.870682 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r4:/Table/1{3-4}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:18.870885 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r5:/{Table/14-Max}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:20.706851 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r2:/Table/1{1-2}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:20.706990 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r3:/Table/1{2-3}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:20.707096 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r1:/{Min-Table/11}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:20.707212 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r5:/{Table/14-Max}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+E161010 18:22:20.707358 148 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r4:/Table/1{3-4}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+E161010 18:27:00.940512 11160 server/server.go:429  [n1] read tcp 127.0.0.1:26257->127.0.0.1:45258: read: connection reset by peer
+E161010 18:27:00.940623 11121 server/server.go:429  [n1] read tcp 127.0.0.1:26257->127.0.0.1:45252: read: connection reset by peer
+E161010 18:59:54.837445 31679 internal/client/txn.go:326  [n1] failure aborting transaction: txn aborted "sql/executor.go:499 sql txn" id=0d22ab92 key=/Table/51/1/"click"/"1" rw=true pri=0.08107284 iso=SNAPSHOT stat=ABORTED epo=1 ts=1476118775.379483991,1 orig=1476118775.379483991,1 max=1476118769.807433244,0 wto=false rop=false; abort caused by: session closing
+E161011 09:45:07.331478 31649 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:53484: write: broken pipe
+E161011 09:45:07.331857 31649 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:53484: write: broken pipe
+E161011 10:04:16.327461 37068 internal/client/txn.go:326  [n1] failure aborting transaction: txn aborted "sql/executor.go:499 sql txn" id=93fbe11f key=/Table/51/1/"click"/"1" rw=true pri=0.01806594 iso=SNAPSHOT stat=ABORTED epo=3 ts=1476173043.139416929,0 orig=1476173035.980755846,1 max=1476173017.653874331,0 wto=false rop=false; abort caused by: session closing
+E161011 10:04:40.306464 36503 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:60828: write: broken pipe
+E161011 10:04:40.306803 36503 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:60828: write: broken pipe
+E161011 10:11:33.662140 38464 internal/client/txn.go:326  [n1] failure aborting transaction: txn aborted "sql/executor.go:499 sql txn" id=45ffda96 key=/Table/51/1/"click"/"1" rw=true pri=0.06284737 iso=SNAPSHOT stat=ABORTED epo=7 ts=1476173475.363557746,1 orig=1476173475.363557746,1 max=1476173465.435593879,0 wto=false rop=false; abort caused by: session closing
+E161011 10:12:05.027256 38547 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:34700: write: broken pipe
+E161011 10:12:05.027634 38547 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:34700: write: broken pipe
+E161011 10:13:29.992080 38605 internal/client/txn.go:326  [n1] failure aborting transaction: txn aborted "sql/executor.go:499 sql txn" id=a8e7b857 key=/Table/51/1/"click"/"1" rw=true pri=0.09090803 iso=SNAPSHOT stat=ABORTED epo=4 ts=1476173544.040120517,1 orig=1476173544.040120517,1 max=1476173537.053380985,0 wto=false rop=false; abort caused by: session closing
+E161011 10:21:16.904489 39742 internal/client/txn.go:326  [n1] failure aborting transaction: txn aborted "sql/executor.go:499 sql txn" id=73809d22 key=/Table/51/1/"click"/"1" rw=true pri=0.10430282 iso=SNAPSHOT stat=ABORTED epo=11 ts=1476174066.144777362,1 orig=1476174066.144777362,1 max=1476174039.247088316,0 wto=false rop=false; abort caused by: session closing
+E161011 10:21:52.716641 39727 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:36662: write: broken pipe
+E161011 10:21:52.717073 39727 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:36662: write: broken pipe
+E161011 10:22:23.382276 41409 internal/client/txn.go:326  [n1] failure aborting transaction: txn aborted "sql/executor.go:499 sql txn" id=4748087f key=/Table/51/1/"click"/"1" rw=true pri=0.01286594 iso=SNAPSHOT stat=ABORTED epo=1 ts=1476174126.270458694,1 orig=1476174126.270458694,1 max=1476174122.315961374,0 wto=false rop=false; abort caused by: session closing
+E161011 10:22:49.686547 41408 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:37660: write: broken pipe
+E161011 10:22:49.686834 41408 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:37660: write: broken pipe
+E161011 10:22:50.566704 41352 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:37652: write: broken pipe
+E161011 10:22:50.570402 41352 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:37652: write: broken pipe
+E161011 10:22:51.030444 41368 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:37608: write: broken pipe
+E161011 10:22:51.033909 41368 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:37608: write: broken pipe
+E161011 10:22:51.063226 41407 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:37656: write: broken pipe
+E161011 10:22:51.063570 41407 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:37656: write: broken pipe
+E161011 10:49:43.334332 46179 server/server.go:429  [n1] read tcp 127.0.0.1:26257->127.0.0.1:44680: read: connection reset by peer
+E161011 11:24:17.874247 51210 server/server.go:429  [n1] read tcp 127.0.0.1:26257->127.0.0.1:52106: read: connection reset by peer
+E161011 11:24:18.640136 51211 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:52108: write: broken pipe
+E161011 11:24:18.640387 51211 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:52108: write: broken pipe
+E161011 11:40:15.076484 54125 server/server.go:429  [n1] read tcp 127.0.0.1:26257->127.0.0.1:56360: read: connection reset by peer
+E161011 11:40:15.575270 54163 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:56322: write: broken pipe
+E161011 11:40:15.575682 54163 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:56322: write: broken pipe
+E161011 11:40:16.042897 54123 sql/pgwire/v3.go:144  write tcp 127.0.0.1:26257->127.0.0.1:56354: write: broken pipe
+E161011 11:40:16.043311 54123 server/server.go:429  [n1] write tcp 127.0.0.1:26257->127.0.0.1:56354: write: broken pipe
