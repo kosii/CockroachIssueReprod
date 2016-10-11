@@ -31,7 +31,7 @@ object Main extends App {
     } {
         val created = 1000 * Random.nextGaussian() + System.currentTimeMillis()
         val expires = created + Random.nextDouble() * 1000
-        sql"UPSERT INTO ttl (namespace, key, created, expires) values ('click', ${UUID.randomUUID().toString},${created.toLong}, ${expires.toLong})".update.apply()
+        sql"UPSERT INTO ttl (namespace, key, created, expires) values ('click', ${key.toString()},${created.toLong}, ${expires.toLong})".update.apply()
     }
   )
 
@@ -45,12 +45,12 @@ object Main extends App {
 
 
   val polluter = Future(for {
-    key <- Iterator.from(0)
+    key <- Iterator.from(501)
   } {
     val created = 1000*Random.nextGaussian() + System.currentTimeMillis()
     val expires = created + Random.nextDouble()*1000
     cockroachReplay("INSERTER")({ implicit session =>
-      sql"UPSERT INTO ttl (namespace, key, created, expires) values ('click', ${UUID.randomUUID().toString},${created.toLong}, ${expires.toLong})".update.apply()
+      sql"UPSERT INTO ttl (namespace, key, created, expires) values ('click', ${key.toString()},${created.toLong}, ${expires.toLong})".update.apply()
     })
   })
 
