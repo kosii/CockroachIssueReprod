@@ -1,0 +1,14 @@
+W161011 13:47:08.403690 1 util/log/clog.go:1019  [config] file created at: 2016/10/11 13:47:08
+W161011 13:47:08.403690 1 util/log/clog.go:1019  [config] running on machine: bkossovics
+W161011 13:47:08.403690 1 util/log/clog.go:1019  [config] binary: CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+W161011 13:47:08.403690 1 util/log/clog.go:1019  [config] arguments: [./cockroach start --store=node2 --port=26258 --http-port=8081 --join=localhost:26257]
+W161011 13:47:08.403690 1 util/log/clog.go:1019  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg
+W161011 13:47:08.403690 1 server/context.go:309  soft open file descriptor limit 4096 is under the recommended limit 10000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/recommended-production-settings.html for more details
+W161011 13:47:08.406541 1 server/server.go:125  running in insecure mode, this is strongly discouraged. See --insecure.
+W161011 13:47:08.407131 1 gossip/gossip.go:1047  [n?] no incoming or outgoing connections
+W161011 13:47:41.379182 196 storage/raft_transport.go:427  [n2] raft transport stream to node 1 failed: rpc error: code = 13 desc = transport is closing
+W161011 13:47:41.379286 57 gossip/gossip.go:1047  [n2] no incoming or outgoing connections
+W161011 13:48:07.393913 255 storage/raft_transport.go:427  [n2] raft transport stream to node 3 failed: EOF
+W161011 13:48:07.393947 57 gossip/gossip.go:1047  [n2] no incoming or outgoing connections
+W161011 13:48:07.395844 402 gossip/client.go:119  [n2] node 2: failed to start gossip client: rpc error: code = 14 desc = grpc: the connection is unavailable

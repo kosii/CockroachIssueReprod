@@ -1,0 +1,80 @@
+I161011 13:47:08.302466 1 util/log/clog.go:1019  [config] file created at: 2016/10/11 13:47:08
+I161011 13:47:08.302466 1 util/log/clog.go:1019  [config] running on machine: bkossovics
+I161011 13:47:08.302466 1 util/log/clog.go:1019  [config] binary: CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+I161011 13:47:08.302466 1 util/log/clog.go:1019  [config] arguments: [./cockroach start --store=node2 --port=26258 --http-port=8081 --join=localhost:26257]
+I161011 13:47:08.302466 1 util/log/clog.go:1019  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg
+I161011 13:47:08.302465 1 cli/start.go:343  CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+I161011 13:47:08.403402 1 cli/backtrace.go:40  backtrace disabled: stat /opt/backtrace/bin/ptrace: no such file or directory
+W161011 13:47:08.403690 1 server/context.go:309  soft open file descriptor limit 4096 is under the recommended limit 10000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/recommended-production-settings.html for more details
+I161011 13:47:08.404502 1 server/context.go:415  1 storage engine initialized
+I161011 13:47:08.404854 1 cli/start.go:363  starting cockroach node
+W161011 13:47:08.406541 1 server/server.go:125  running in insecure mode, this is strongly discouraged. See --insecure.
+I161011 13:47:08.407017 1 gossip/gossip.go:234  [n?] initial resolvers: [localhost:26257]
+W161011 13:47:08.407131 1 gossip/gossip.go:1047  [n?] no incoming or outgoing connections
+I161011 13:47:08.416545 1 storage/engine/rocksdb.go:342  opening rocksdb instance at "node2"
+I161011 13:47:08.422146 39 gossip/client.go:125  [n?] node 0: started gossip client to localhost:26257
+I161011 13:47:08.491203 1 server/node.go:422  [n?] store [n0,s0] not bootstrapped
+I161011 13:47:08.491383 1 storage/stores.go:290  [n?] read 0 node addresses from persistent storage
+I161011 13:47:08.491749 1 server/node.go:563  [n?] connecting to gossip network to verify cluster ID...
+I161011 13:47:08.492052 1 server/node.go:584  [n?] node connected via gossip and verified as part of cluster {"00ab2d15-9da0-4aae-8a5b-057622956972"}
+I161011 13:47:08.498928 1 kv/dist_sender.go:339  [n?] unable to determine this node's attributes for replica selection; node is most likely bootstrapping
+I161011 13:47:08.502930 1 server/node.go:321  [n?] new node allocated ID 2
+I161011 13:47:08.503015 1 gossip/gossip.go:268  [n?] NodeID set to 2
+I161011 13:47:08.503326 1 gossip/gossip.go:282  [n?] NodeDescriptor set to node_id:2 address:<network_field:"tcp" address_field:"localhost:26258" > attrs:<>
+I161011 13:47:08.503796 1 server/node.go:373  [n?] node=2: started with [[]=node2] engine(s) and attributes []
+I161011 13:47:08.504015 1 server/server.go:500  [n2] starting http server at localhost:8081
+I161011 13:47:08.504108 1 server/server.go:501  [n2] starting grpc/postgres server at localhost:26258
+I161011 13:47:08.505105 1 server/server.go:502  [n2] advertising CockroachDB node at localhost:26258
+I161011 13:47:08.505749 100 sql/event_log.go:109  [n2] Event: "node_join", target: 2, info: {Descriptor:{NodeID:2 Address:{NetworkField:tcp AddressField:localhost:26258} Attrs:} ClusterID:{UUID:00ab2d15-9da0-4aae-8a5b-057622956972} StartedAt:1476186428503669658}
+I161011 13:47:08.510218 33 gossip/gossip.go:268  [n2] NodeID set to 2
+I161011 13:47:08.518871 33 server/node.go:544  [n2] bootstrapped store [n2,s2]
+I161011 13:47:08.535069 162 storage/replica_raftstorage.go:577  [n2,s2] [n2,s2,r5:{-}]: with replicaID [?], applying preemptive snapshot at index 11 (id=8553d2a7, encoded size=16, 1 rocksdb batches, 1 log entries)
+I161011 13:47:08.536924 162 storage/replica_raftstorage.go:580  [n2,s2] [n2,s2,r5:/{Table/14-Max}]: with replicaID [?], applied preemptive snapshot in 0.002s
+I161011 13:47:08.577747 196 storage/raft_transport.go:422  [n2] raft transport stream to node 1 established
+I161011 13:47:08.587696 163 storage/replica_raftstorage.go:577  [n2,s2] [n2,s2,r1:{-}]: with replicaID [?], applying preemptive snapshot at index 39 (id=dea437b4, encoded size=16, 1 rocksdb batches, 29 log entries)
+I161011 13:47:08.593542 163 storage/replica_raftstorage.go:580  [n2,s2] [n2,s2,r1:/{Min-Table/11}]: with replicaID [?], applied preemptive snapshot in 0.006s
+I161011 13:47:08.615747 201 storage/replica_raftstorage.go:577  [n2,s2] [n2,s2,r2:{-}]: with replicaID [?], applying preemptive snapshot at index 18 (id=4002578a, encoded size=16, 1 rocksdb batches, 8 log entries)
+I161011 13:47:08.617735 201 storage/replica_raftstorage.go:580  [n2,s2] [n2,s2,r2:/Table/1{1-2}]: with replicaID [?], applied preemptive snapshot in 0.002s
+I161011 13:47:08.621065 141 storage/replica_trigger.go:438  [n2,s2,r1:/{Min-Table/11}] unable to gossip first range; hasLease=false, err=<nil>
+I161011 13:47:08.647770 203 storage/replica_raftstorage.go:577  [n2,s2] [n2,s2,r3:{-}]: with replicaID [?], applying preemptive snapshot at index 18 (id=0abf855a, encoded size=16, 1 rocksdb batches, 8 log entries)
+I161011 13:47:08.649463 203 storage/replica_raftstorage.go:580  [n2,s2] [n2,s2,r3:/Table/1{2-3}]: with replicaID [?], applied preemptive snapshot in 0.002s
+I161011 13:47:08.699578 59 storage/replica_raftstorage.go:577  [n2,s2] [n2,s2,r4:{-}]: with replicaID [?], applying preemptive snapshot at index 23 (id=29c4ccf8, encoded size=16, 1 rocksdb batches, 13 log entries)
+I161011 13:47:08.701840 59 storage/replica_raftstorage.go:580  [n2,s2] [n2,s2,r4:/Table/1{3-4}]: with replicaID [?], applied preemptive snapshot in 0.002s
+I161011 13:47:10.699333 94 storage/stores.go:305  [n2] wrote 1 node addresses to persistent storage
+I161011 13:47:10.871545 143 storage/replica_trigger.go:438  [n2,s2,r1:/{Min-Table/11}] unable to gossip first range; hasLease=false, err=<nil>
+I161011 13:47:18.505041 98 storage/store.go:3183  [n2,s2] sstables (read amplification = 0):
+I161011 13:47:18.508011 101 server/status/runtime.go:228  runtime stats: 101 MiB RSS, 81 goroutines, 7.5 MiB/784 KiB/15 MiB GO alloc/idle/total, 6.4 MiB/10 MiB CGO alloc/total, 0.00cgo/sec, 0.00/0.00 %(u/s)time, 0.00 %gc (4x)
+I161011 13:47:28.507188 101 server/status/runtime.go:228  runtime stats: 104 MiB RSS, 85 goroutines, 8.6 MiB/424 KiB/16 MiB GO alloc/idle/total, 6.9 MiB/11 MiB CGO alloc/total, 26.40cgo/sec, 0.02/0.00 %(u/s)time, 0.00 %gc (1x)
+I161011 13:47:33.441744 57 gossip/gossip.go:1061  [n2] node has connected to cluster via gossip
+I161011 13:47:33.442709 57 storage/stores.go:305  [n2] wrote 2 node addresses to persistent storage
+I161011 13:47:38.506512 101 server/status/runtime.go:228  runtime stats: 106 MiB RSS, 85 goroutines, 8.2 MiB/1.8 MiB/17 MiB GO alloc/idle/total, 8.3 MiB/13 MiB CGO alloc/total, 1889.62cgo/sec, 0.16/0.05 %(u/s)time, 0.00 %gc (3x)
+I161011 13:47:41.378571 42 http2_client.go:1053  transport: http2Client.notifyError got notified that the client transport was broken EOF.
+W161011 13:47:41.379182 196 storage/raft_transport.go:427  [n2] raft transport stream to node 1 failed: rpc error: code = 13 desc = transport is closing
+W161011 13:47:41.379286 57 gossip/gossip.go:1047  [n2] no incoming or outgoing connections
+I161011 13:47:41.380516 269 gossip/client.go:125  [n2] node 2: started gossip client to localhost:26259
+I161011 13:47:41.382425 282 http2_client.go:1053  transport: http2Client.notifyError got notified that the client transport was broken read tcp 127.0.0.1:37172->127.0.0.1:26257: read: connection reset by peer.
+I161011 13:47:41.384011 29 /go/src/google.golang.org/grpc/clientconn.go:667  grpc: addrConn.resetTransport failed to create client transport: connection error: desc = "transport: dial tcp [::1]:26257: getsockopt: connection refused"; Reconnecting to {"localhost:26257" <nil>}
+I161011 13:47:42.384570 29 /go/src/google.golang.org/grpc/clientconn.go:667  grpc: addrConn.resetTransport failed to create client transport: connection error: desc = "transport: dial tcp [::1]:26257: getsockopt: connection refused"; Reconnecting to {"localhost:26257" <nil>}
+I161011 13:47:44.159367 29 /go/src/google.golang.org/grpc/clientconn.go:667  grpc: addrConn.resetTransport failed to create client transport: connection error: desc = "transport: dial tcp [::1]:26257: getsockopt: connection refused"; Reconnecting to {"localhost:26257" <nil>}
+I161011 13:47:44.510477 255 storage/raft_transport.go:422  [n2] raft transport stream to node 3 established
+I161011 13:47:46.301501 29 /go/src/google.golang.org/grpc/clientconn.go:667  grpc: addrConn.resetTransport failed to create client transport: connection error: desc = "transport: dial tcp [::1]:26257: getsockopt: connection refused"; Reconnecting to {"localhost:26257" <nil>}
+I161011 13:47:48.506466 101 server/status/runtime.go:228  runtime stats: 110 MiB RSS, 81 goroutines, 9.8 MiB/1.9 MiB/19 MiB GO alloc/idle/total, 9.9 MiB/16 MiB CGO alloc/total, 2187.79cgo/sec, 0.13/0.02 %(u/s)time, 0.00 %gc (5x)
+I161011 13:47:48.728113 120 storage/replica_trigger.go:254  [n2,s2,r1:/{Min-Table/11}] new range lease replica {2 2 2} 2016-10-11 11:47:45.66420147 +0000 UTC 12.143827471s following replica {1 1 1} 1970-01-01 00:00:00 +0000 UTC 410051h47m45.66420147s [physicalTime=2016-10-11 11:47:48.727774185 +0000 UTC]
+I161011 13:47:49.938382 29 /go/src/google.golang.org/grpc/clientconn.go:667  grpc: addrConn.resetTransport failed to create client transport: connection error: desc = "transport: dial tcp [::1]:26257: getsockopt: connection refused"; Reconnecting to {"localhost:26257" <nil>}
+I161011 13:47:56.322773 29 /go/src/google.golang.org/grpc/clientconn.go:667  grpc: addrConn.resetTransport failed to create client transport: connection error: desc = "transport: dial tcp [::1]:26257: getsockopt: connection refused"; Reconnecting to {"localhost:26257" <nil>}
+I161011 13:47:58.471527 57 gossip/gossip.go:1061  [n2] node has connected to cluster via gossip
+I161011 13:47:58.506596 101 server/status/runtime.go:228  runtime stats: 110 MiB RSS, 81 goroutines, 10 MiB/2.3 MiB/20 MiB GO alloc/idle/total, 9.9 MiB/16 MiB CGO alloc/total, 41.90cgo/sec, 0.02/0.01 %(u/s)time, 0.00 %gc (1x)
+I161011 13:48:02.169209 1 cli/start.go:427  initiating graceful shutdown of server
+I161011 13:48:07.169826 356 cli/start.go:439  0 running tasks
+I161011 13:48:07.393654 64 http2_client.go:1053  transport: http2Client.notifyError got notified that the client transport was broken EOF.
+W161011 13:48:07.393913 255 storage/raft_transport.go:427  [n2] raft transport stream to node 3 failed: EOF
+W161011 13:48:07.393947 57 gossip/gossip.go:1047  [n2] no incoming or outgoing connections
+W161011 13:48:07.395844 402 gossip/client.go:119  [n2] node 2: failed to start gossip client: rpc error: code = 14 desc = grpc: the connection is unavailable
+I161011 13:48:07.395974 227 /go/src/google.golang.org/grpc/clientconn.go:667  grpc: addrConn.resetTransport failed to create client transport: connection error: desc = "transport: dial tcp [::1]:26259: getsockopt: connection refused"; Reconnecting to {"localhost:26259" <nil>}
+I161011 13:48:08.177374 29 /go/src/google.golang.org/grpc/clientconn.go:667  grpc: addrConn.resetTransport failed to create client transport: connection error: desc = "transport: dial tcp [::1]:26257: getsockopt: connection refused"; Reconnecting to {"localhost:26257" <nil>}
+I161011 13:48:08.251802 227 /go/src/google.golang.org/grpc/clientconn.go:767  grpc: addrConn.transportMonitor exits due to: context canceled
+I161011 13:48:08.251893 74 http2_server.go:276  transport: http2Server.HandleStreams failed to read frame: read tcp 127.0.0.1:26258->127.0.0.1:36928: use of closed network connection
+I161011 13:48:08.251927 29 /go/src/google.golang.org/grpc/clientconn.go:767  grpc: addrConn.transportMonitor exits due to: context canceled
+I161011 13:48:08.270142 355 storage/engine/rocksdb.go:407  closing rocksdb instance at "node2"
+I161011 13:48:08.271719 1 cli/start.go:453  server drained and shutdown completed

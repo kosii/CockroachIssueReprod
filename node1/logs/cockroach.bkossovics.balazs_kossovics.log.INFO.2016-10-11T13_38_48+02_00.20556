@@ -1,0 +1,49 @@
+I161011 13:38:48.520607 1 util/log/clog.go:1019  [config] file created at: 2016/10/11 13:38:48
+I161011 13:38:48.520607 1 util/log/clog.go:1019  [config] running on machine: bkossovics
+I161011 13:38:48.520607 1 util/log/clog.go:1019  [config] binary: CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+I161011 13:38:48.520607 1 util/log/clog.go:1019  [config] arguments: [./cockroach start --store=node1]
+I161011 13:38:48.520607 1 util/log/clog.go:1019  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg
+I161011 13:38:48.520606 1 cli/start.go:343  CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+I161011 13:38:48.622173 1 cli/backtrace.go:40  backtrace disabled: stat /opt/backtrace/bin/ptrace: no such file or directory
+W161011 13:38:48.622503 1 server/context.go:309  soft open file descriptor limit 4096 is under the recommended limit 10000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/recommended-production-settings.html for more details
+I161011 13:38:48.623269 1 server/context.go:415  1 storage engine initialized
+I161011 13:38:48.623525 1 cli/start.go:363  starting cockroach node
+W161011 13:38:48.625089 1 server/server.go:125  running in insecure mode, this is strongly discouraged. See --insecure.
+I161011 13:38:48.625548 1 gossip/gossip.go:234  [n?] initial resolvers: []
+W161011 13:38:48.625631 1 gossip/gossip.go:1045  [n?] no resolvers found; use --join to specify a connected node
+I161011 13:38:48.632306 1 storage/engine/rocksdb.go:342  opening rocksdb instance at "node1"
+I161011 13:38:48.977976 1 gossip/gossip.go:268  [n?] NodeID set to 1
+I161011 13:38:49.001041 1 storage/store.go:1018  [n?] [n1,s1]: failed initial metrics computation: [n1,s1]: system config not yet available
+I161011 13:38:49.001170 1 server/node.go:435  [n?] initialized store [n1,s1]: {Capacity:503420661760 Available:303658397696 RangeCount:0}
+I161011 13:38:49.001297 1 server/node.go:327  [n?] node ID 1 initialized
+I161011 13:38:49.001680 1 gossip/gossip.go:282  [n?] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"localhost:26257" > attrs:<>
+I161011 13:38:49.003833 1 storage/stores.go:290  [n?] read 2 node addresses from persistent storage
+I161011 13:38:49.005099 1 server/node.go:563  [n?] connecting to gossip network to verify cluster ID...
+I161011 13:38:49.005260 1 server/node.go:584  [n?] node connected via gossip and verified as part of cluster {"ed5df253-3d89-4506-9198-1215a7c08d00"}
+I161011 13:38:49.005557 1 server/node.go:373  [n?] node=1: started with [[]=node1] engine(s) and attributes []
+I161011 13:38:49.005739 1 server/server.go:500  [n1] starting http server at localhost:8080
+I161011 13:38:49.005855 1 server/server.go:501  [n1] starting grpc/postgres server at localhost:26257
+I161011 13:38:49.005941 1 server/server.go:502  [n1] advertising CockroachDB node at localhost:26257
+I161011 13:38:49.006471 118 sql/event_log.go:109  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:{NetworkField:tcp AddressField:localhost:26257} Attrs:} ClusterID:{UUID:ed5df253-3d89-4506-9198-1215a7c08d00} StartedAt:1476185929005303584}
+I161011 13:38:49.635053 103 gossip/client.go:125  [n1] node 1: started gossip client to localhost:26258
+I161011 13:38:53.006180 246 storage/raft_transport.go:422  [n1] raft transport stream to node 3 established
+I161011 13:38:53.006681 245 storage/raft_transport.go:422  [n1] raft transport stream to node 2 established
+I161011 13:38:53.008450 248 storage/store.go:2598  [n1,s1] [n1,s1,r1:/{Min-Table/11}]: replica {1 1 1} too old, added to replica GC queue
+I161011 13:38:53.008836 240 storage/store.go:2598  [n1,s1] [n1,s1,r1:/{Min-Table/11}]: replica {1 1 1} too old, added to replica GC queue
+W161011 13:38:53.023052 80 storage/replica.go:3271  [n1,s1,r1:/{Min-Table/11}] could not acquire lease for range gossip: range 1 was not found
+W161011 13:38:53.023171 80 storage/store.go:1047  [n1,s1] error gossiping first range data: range 1 was not found
+W161011 13:38:53.023266 81 storage/replica.go:3271  [n1,s1] could not acquire lease for range gossip: range 1 was not found
+W161011 13:38:53.023349 81 storage/store.go:1066  [n1,s1] error gossiping system config: range 1 was not found
+I161011 13:38:59.007206 116 storage/store.go:3183  [n1,s1] sstables (read amplification = 1):
+6 [ 5M 1 ]: 5M
+I161011 13:38:59.010559 119 server/status/runtime.go:228  runtime stats: 59 MiB RSS, 83 goroutines, 8.0 MiB/3.7 MiB/19 MiB GO alloc/idle/total, 20 MiB/28 MiB CGO alloc/total, 0.00cgo/sec, 0.00/0.00 %(u/s)time, 0.00 %gc (6x)
+I161011 13:39:03.312575 296 storage/replica_raftstorage.go:577  [n1,s1] [n1,s1,r2:/Table/1{1-2}]: with replicaID 1, applying Raft snapshot at index 800 (id=c27f3263, encoded size=16, 1 rocksdb batches, 86 log entries)
+I161011 13:39:03.321826 296 storage/replica_raftstorage.go:580  [n1,s1] [n1,s1,r2:/Table/1{1-2}]: with replicaID 1, applied Raft snapshot in 0.009s
+I161011 13:39:08.323629 611 storage/replica_raftstorage.go:577  [n1,s1] [n1,s1,r3:/Table/1{2-3}]: with replicaID 1, applying Raft snapshot at index 718 (id=88c4aeb2, encoded size=16, 1 rocksdb batches, 101 log entries)
+I161011 13:39:08.330672 611 storage/replica_raftstorage.go:580  [n1,s1] [n1,s1,r3:/Table/1{2-3}]: with replicaID 1, applied Raft snapshot in 0.007s
+I161011 13:39:09.009731 119 server/status/runtime.go:228  runtime stats: 62 MiB RSS, 90 goroutines, 7.9 MiB/4.4 MiB/20 MiB GO alloc/idle/total, 22 MiB/30 MiB CGO alloc/total, 58.30cgo/sec, 0.13/0.03 %(u/s)time, 0.00 %gc (4x)
+I161011 13:39:13.307599 1202 storage/replica_raftstorage.go:577  [n1,s1] [n1,s1,r4:/Table/1{3-4}]: with replicaID 1, applying Raft snapshot at index 751 (id=31cd6094, encoded size=16, 1 rocksdb batches, 31 log entries)
+I161011 13:39:13.314174 1202 storage/replica_raftstorage.go:580  [n1,s1] [n1,s1,r4:/Table/1{3-4}]: with replicaID 1, applied Raft snapshot in 0.006s
+I161011 13:39:18.310548 1416 storage/replica_raftstorage.go:577  [n1,s1] [n1,s1,r5:/Table/{14-50}]: with replicaID 1, applying Raft snapshot at index 714 (id=705e4a88, encoded size=16, 1 rocksdb batches, 95 log entries)
+I161011 13:39:18.316021 1416 storage/replica_raftstorage.go:580  [n1,s1] [n1,s1,r5:/Table/{14-50}]: with replicaID 1, applied Raft snapshot in 0.005s

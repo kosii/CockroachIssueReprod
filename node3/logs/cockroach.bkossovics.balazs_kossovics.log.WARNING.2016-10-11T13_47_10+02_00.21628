@@ -1,0 +1,10 @@
+W161011 13:47:10.564534 1 util/log/clog.go:1019  [config] file created at: 2016/10/11 13:47:10
+W161011 13:47:10.564534 1 util/log/clog.go:1019  [config] running on machine: bkossovics
+W161011 13:47:10.564534 1 util/log/clog.go:1019  [config] binary: CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+W161011 13:47:10.564534 1 util/log/clog.go:1019  [config] arguments: [./cockroach start --store=node3 --port=26259 --http-port=8082 --join=localhost:26257]
+W161011 13:47:10.564534 1 util/log/clog.go:1019  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg
+W161011 13:47:10.564534 1 server/context.go:309  soft open file descriptor limit 4096 is under the recommended limit 10000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/recommended-production-settings.html for more details
+W161011 13:47:10.566973 1 server/server.go:125  running in insecure mode, this is strongly discouraged. See --insecure.
+W161011 13:47:10.567496 1 gossip/gossip.go:1047  [n?] no incoming or outgoing connections
+W161011 13:47:41.378738 156 storage/raft_transport.go:427  [n3] raft transport stream to node 1 failed: rpc error: code = 13 desc = transport is closing

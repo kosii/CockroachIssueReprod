@@ -1,0 +1,13 @@
+W161011 13:38:48.622505 1 util/log/clog.go:1019  [config] file created at: 2016/10/11 13:38:48
+W161011 13:38:48.622505 1 util/log/clog.go:1019  [config] running on machine: bkossovics
+W161011 13:38:48.622505 1 util/log/clog.go:1019  [config] binary: CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+W161011 13:38:48.622505 1 util/log/clog.go:1019  [config] arguments: [./cockroach start --store=node1]
+W161011 13:38:48.622505 1 util/log/clog.go:1019  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg
+W161011 13:38:48.622503 1 server/context.go:309  soft open file descriptor limit 4096 is under the recommended limit 10000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/recommended-production-settings.html for more details
+W161011 13:38:48.625089 1 server/server.go:125  running in insecure mode, this is strongly discouraged. See --insecure.
+W161011 13:38:48.625631 1 gossip/gossip.go:1045  [n?] no resolvers found; use --join to specify a connected node
+W161011 13:38:53.023052 80 storage/replica.go:3271  [n1,s1,r1:/{Min-Table/11}] could not acquire lease for range gossip: range 1 was not found
+W161011 13:38:53.023171 80 storage/store.go:1047  [n1,s1] error gossiping first range data: range 1 was not found
+W161011 13:38:53.023266 81 storage/replica.go:3271  [n1,s1] could not acquire lease for range gossip: range 1 was not found
+W161011 13:38:53.023349 81 storage/store.go:1066  [n1,s1] error gossiping system config: range 1 was not found

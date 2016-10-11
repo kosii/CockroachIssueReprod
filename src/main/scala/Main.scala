@@ -5,6 +5,7 @@ import scalikejdbc._
 import scalikejdbc.config.DBs
 import utils._
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, Future}
 import scala.util.{Random, Try}
@@ -28,7 +29,6 @@ object Main extends App {
     }
   )
 
-  import scala.concurrent.ExecutionContext.Implicits.global
   val num = 5
 
   val a: List[Future[Try[Long]]] = (for {

@@ -1,0 +1,102 @@
+I161011 13:47:05.978082 1 util/log/clog.go:1019  [config] file created at: 2016/10/11 13:47:05
+I161011 13:47:05.978082 1 util/log/clog.go:1019  [config] running on machine: bkossovics
+I161011 13:47:05.978082 1 util/log/clog.go:1019  [config] binary: CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+I161011 13:47:05.978082 1 util/log/clog.go:1019  [config] arguments: [./cockroach start --store=node1]
+I161011 13:47:05.978082 1 util/log/clog.go:1019  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg
+I161011 13:47:05.978081 1 cli/start.go:343  CockroachDB beta-20161006 (linux amd64, built 2016/10/06 16:30:12, go1.7.1)
+I161011 13:47:06.079073 1 cli/backtrace.go:40  backtrace disabled: stat /opt/backtrace/bin/ptrace: no such file or directory
+W161011 13:47:06.079287 1 server/context.go:309  soft open file descriptor limit 4096 is under the recommended limit 10000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/recommended-production-settings.html for more details
+I161011 13:47:06.079976 1 server/context.go:415  1 storage engine initialized
+I161011 13:47:06.080213 1 cli/start.go:363  starting cockroach node
+W161011 13:47:06.081825 1 server/server.go:125  running in insecure mode, this is strongly discouraged. See --insecure.
+I161011 13:47:06.082504 1 gossip/gossip.go:234  [n?] initial resolvers: []
+W161011 13:47:06.082638 1 gossip/gossip.go:1045  [n?] no resolvers found; use --join to specify a connected node
+I161011 13:47:06.091735 1 storage/engine/rocksdb.go:342  opening rocksdb instance at "node1"
+I161011 13:47:06.217144 1 server/node.go:422  [n?] store [n0,s0] not bootstrapped
+I161011 13:47:06.232574 79 storage/replica_trigger.go:254  [s1,r1:/M{in-ax}] new range lease replica {1 1 1} 1970-01-01 00:00:00 +0000 UTC 410051h47m15.228292373s following replica {0 0 0} 1970-01-01 00:00:00 +0000 UTC 0s [physicalTime=2016-10-11 11:47:06.232193707 +0000 UTC]
+I161011 13:47:06.236916 1 server/node.go:354  [n?] **** cluster {00ab2d15-9da0-4aae-8a5b-057622956972} has been created
+I161011 13:47:06.237044 1 server/node.go:355  [n?] **** add additional nodes by specifying --join=localhost:26257
+I161011 13:47:06.238715 1 gossip/gossip.go:268  [n?] NodeID set to 1
+I161011 13:47:06.242163 1 server/node.go:435  [n?] initialized store [n1,s1]: {Capacity:503420661760 Available:303853305856 RangeCount:0}
+I161011 13:47:06.242329 1 server/node.go:327  [n?] node ID 1 initialized
+I161011 13:47:06.242790 1 gossip/gossip.go:282  [n?] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"localhost:26257" > attrs:<>
+I161011 13:47:06.243167 1 storage/stores.go:290  [n?] read 0 node addresses from persistent storage
+I161011 13:47:06.243715 1 server/node.go:563  [n?] connecting to gossip network to verify cluster ID...
+I161011 13:47:06.243843 1 server/node.go:584  [n?] node connected via gossip and verified as part of cluster {"00ab2d15-9da0-4aae-8a5b-057622956972"}
+I161011 13:47:06.244061 1 server/node.go:373  [n?] node=1: started with [[]=node1] engine(s) and attributes []
+I161011 13:47:06.244265 1 server/server.go:500  [n1] starting http server at localhost:8080
+I161011 13:47:06.244350 1 server/server.go:501  [n1] starting grpc/postgres server at localhost:26257
+I161011 13:47:06.244436 1 server/server.go:502  [n1] advertising CockroachDB node at localhost:26257
+I161011 13:47:06.244805 140 sql/event_log.go:109  [n1] Event: "node_join", target: 1, info: {Descriptor:{NodeID:1 Address:{NetworkField:tcp AddressField:localhost:26257} Attrs:} ClusterID:{UUID:00ab2d15-9da0-4aae-8a5b-057622956972} StartedAt:1476186426243881189}
+I161011 13:47:06.246888 57 storage/split_queue.go:106  [n1,split,s1,r1:/M{in-ax}] splitting at keys [/Table/11/0 /Table/12/0 /Table/13/0 /Table/14/0]
+I161011 13:47:06.261988 181 server/updates.go:155  [n1,updates check] No previous updates check time.
+I161011 13:47:06.279205 57 storage/replica_command.go:2364  [n1,split,s1,r1:/M{in-ax},r1:/M{in-ax}] initiating a split of this range at key /Table/11 [r2]
+I161011 13:47:06.306365 140 sql/event_log.go:109  [n1] Event: "node_join", target: 1, info: {Descriptor:{NodeID:1 Address:{NetworkField:tcp AddressField:localhost:26257} Attrs:} ClusterID:{UUID:00ab2d15-9da0-4aae-8a5b-057622956972} StartedAt:1476186426243881189}
+E161011 13:47:06.345802 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r1:/{Min-Table/11}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+E161011 13:47:06.348104 22 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r1:/{Min-Table/11}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+I161011 13:47:06.349307 57 storage/replica_command.go:2364  [n1,split,s1,r1:/{Min-Table/11},r2:/{Table/11-Max}] initiating a split of this range at key /Table/12 [r3]
+E161011 13:47:06.372412 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r2:/Table/1{1-2}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+I161011 13:47:06.375246 57 storage/replica_command.go:2364  [n1,split,s1,r1:/{Min-Table/11},r3:/{Table/12-Max}] initiating a split of this range at key /Table/13 [r4]
+E161011 13:47:06.412805 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r3:/Table/1{2-3}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+I161011 13:47:06.415413 57 storage/replica_command.go:2364  [n1,split,s1,r1:/{Min-Table/11},r4:/{Table/13-Max}] initiating a split of this range at key /Table/14 [r5]
+E161011 13:47:06.447058 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r4:/Table/1{3-4}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+E161011 13:47:06.448115 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r5:/{Table/14-Max}]: 0 of 1 store with an attribute matching []; likely not enough nodes in cluster
+I161011 13:47:08.423577 167 gossip/server.go:274  [n1] node 1: received gossip from unknown node
+I161011 13:47:08.505869 171 storage/stores.go:305  [n1] wrote 1 node addresses to persistent storage
+I161011 13:47:08.530981 22 storage/replica_raftstorage.go:447  [n1,s1,r5:/{Table/14-Max}] generated snapshot 8553d2a7 for range 5 at index 11 in 286.547µs.
+I161011 13:47:08.533096 22 storage/store.go:2712  [n1,replicate,s1,r5:/{Table/14-Max}] streamed snapshot: kv pairs: 9, log entries: 1
+I161011 13:47:08.548604 22 storage/replica_command.go:3278  [n1,replicate,s1,r5:/{Table/14-Max}] change replicas: read existing descriptor range_id:5 start_key:"\226" end_key:"\377\377" replicas:<node_id:1 store_id:1 replica_id:1 > next_replica_id:2
+I161011 13:47:08.566122 22 storage/replica.go:1701  [n1,s1,r5:/{Table/14-Max}] proposing ADD_REPLICA {NodeID:2 StoreID:2 ReplicaID:2} for range 5: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2}]
+I161011 13:47:08.571568 22 storage/replica_raftstorage.go:447  [n1,s1,r1:/{Min-Table/11}] generated snapshot dea437b4 for range 1 at index 39 in 295.807µs.
+I161011 13:47:08.585513 22 storage/store.go:2712  [n1,replicate,s1,r1:/{Min-Table/11}] streamed snapshot: kv pairs: 466, log entries: 29
+I161011 13:47:08.595739 22 storage/replica_command.go:3278  [n1,replicate,s1,r1:/{Min-Table/11}] change replicas: read existing descriptor range_id:1 start_key:"" end_key:"\223" replicas:<node_id:1 store_id:1 replica_id:1 > next_replica_id:2
+I161011 13:47:08.605751 22 storage/replica.go:1701  [n1,s1,r1:/{Min-Table/11}] proposing ADD_REPLICA {NodeID:2 StoreID:2 ReplicaID:2} for range 1: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2}]
+I161011 13:47:08.612129 22 storage/replica_raftstorage.go:447  [n1,s1,r2:/Table/1{1-2}] generated snapshot 4002578a for range 2 at index 18 in 259.179µs.
+I161011 13:47:08.614353 22 storage/store.go:2712  [n1,replicate,s1,r2:/Table/1{1-2}] streamed snapshot: kv pairs: 10, log entries: 8
+I161011 13:47:08.619776 22 storage/replica_command.go:3278  [n1,replicate,s1,r2:/Table/1{1-2}] change replicas: read existing descriptor range_id:2 start_key:"\223" end_key:"\224" replicas:<node_id:1 store_id:1 replica_id:1 > next_replica_id:2
+I161011 13:47:08.636848 22 storage/replica.go:1701  [n1,s1,r2:/Table/1{1-2}] proposing ADD_REPLICA {NodeID:2 StoreID:2 ReplicaID:2} for range 2: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2}]
+E161011 13:47:08.640360 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r5:/{Table/14-Max}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+I161011 13:47:08.642624 22 storage/replica_raftstorage.go:447  [n1,s1,r3:/Table/1{2-3}] generated snapshot 0abf855a for range 3 at index 18 in 228.16µs.
+I161011 13:47:08.646327 22 storage/store.go:2712  [n1,replicate,s1,r3:/Table/1{2-3}] streamed snapshot: kv pairs: 20, log entries: 8
+I161011 13:47:08.652210 22 storage/replica_command.go:3278  [n1,replicate,s1,r3:/Table/1{2-3}] change replicas: read existing descriptor range_id:3 start_key:"\224" end_key:"\225" replicas:<node_id:1 store_id:1 replica_id:1 > next_replica_id:2
+I161011 13:47:08.689824 22 storage/replica.go:1701  [n1,s1,r3:/Table/1{2-3}] proposing ADD_REPLICA {NodeID:2 StoreID:2 ReplicaID:2} for range 3: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2}]
+I161011 13:47:08.694568 22 storage/replica_raftstorage.go:447  [n1,s1,r4:/Table/1{3-4}] generated snapshot 29c4ccf8 for range 4 at index 23 in 255.601µs.
+I161011 13:47:08.697248 22 storage/store.go:2712  [n1,replicate,s1,r4:/Table/1{3-4}] streamed snapshot: kv pairs: 59, log entries: 13
+I161011 13:47:08.703899 22 storage/replica_command.go:3278  [n1,replicate,s1,r4:/Table/1{3-4}] change replicas: read existing descriptor range_id:4 start_key:"\225" end_key:"\226" replicas:<node_id:1 store_id:1 replica_id:1 > next_replica_id:2
+I161011 13:47:08.718819 22 storage/replica.go:1701  [n1,s1,r4:/Table/1{3-4}] proposing ADD_REPLICA {NodeID:2 StoreID:2 ReplicaID:2} for range 4: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2}]
+E161011 13:47:08.722738 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r1:/{Min-Table/11}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+E161011 13:47:08.723536 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r2:/Table/1{1-2}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+E161011 13:47:08.724253 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r4:/Table/1{3-4}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+E161011 13:47:08.724843 58 storage/queue.go:564  [n1,replicate] (purgatory) on [n1,s1,r3:/Table/1{2-3}]: 0 of 2 stores with an attribute matching []; likely not enough nodes in cluster
+I161011 13:47:10.587182 234 gossip/server.go:274  [n1] node 1: received gossip from unknown node
+I161011 13:47:10.691679 290 storage/stores.go:305  [n1] wrote 2 node addresses to persistent storage
+I161011 13:47:10.734375 22 storage/replica_raftstorage.go:447  [n1,s1,r5:/{Table/14-Max}] generated snapshot 9a724392 for range 5 at index 14 in 346.115µs.
+I161011 13:47:10.738538 22 storage/store.go:2712  [n1,replicate,s1,r5:/{Table/14-Max}] streamed snapshot: kv pairs: 10, log entries: 4
+I161011 13:47:10.754293 22 storage/replica_command.go:3278  [n1,replicate,s1,r5:/{Table/14-Max}] change replicas: read existing descriptor range_id:5 start_key:"\226" end_key:"\377\377" replicas:<node_id:1 store_id:1 replica_id:1 > replicas:<node_id:2 store_id:2 replica_id:2 > next_replica_id:3
+I161011 13:47:10.792975 22 storage/replica.go:1701  [n1,s1,r5:/{Table/14-Max}] proposing ADD_REPLICA {NodeID:3 StoreID:3 ReplicaID:3} for range 5: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2} {NodeID:3 StoreID:3 ReplicaID:3}]
+I161011 13:47:10.802593 22 storage/replica_raftstorage.go:447  [n1,s1,r1:/{Min-Table/11}] generated snapshot 43d35452 for range 1 at index 54 in 256.093µs.
+I161011 13:47:10.825803 22 storage/store.go:2712  [n1,replicate,s1,r1:/{Min-Table/11}] streamed snapshot: kv pairs: 633, log entries: 44
+I161011 13:47:10.837572 22 storage/replica_command.go:3278  [n1,replicate,s1,r1:/{Min-Table/11}] change replicas: read existing descriptor range_id:1 start_key:"" end_key:"\223" replicas:<node_id:1 store_id:1 replica_id:1 > replicas:<node_id:2 store_id:2 replica_id:2 > next_replica_id:3
+I161011 13:47:10.861063 22 storage/replica.go:1701  [n1,s1,r1:/{Min-Table/11}] proposing ADD_REPLICA {NodeID:3 StoreID:3 ReplicaID:3} for range 1: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2} {NodeID:3 StoreID:3 ReplicaID:3}]
+I161011 13:47:10.873141 22 storage/replica_raftstorage.go:447  [n1,s1,r2:/Table/1{1-2}] generated snapshot ff2ca8f3 for range 2 at index 21 in 283.524µs.
+I161011 13:47:10.881670 22 storage/store.go:2712  [n1,replicate,s1,r2:/Table/1{1-2}] streamed snapshot: kv pairs: 11, log entries: 11
+I161011 13:47:10.885719 22 storage/replica_command.go:3278  [n1,replicate,s1,r2:/Table/1{1-2}] change replicas: read existing descriptor range_id:2 start_key:"\223" end_key:"\224" replicas:<node_id:1 store_id:1 replica_id:1 > replicas:<node_id:2 store_id:2 replica_id:2 > next_replica_id:3
+I161011 13:47:10.904295 22 storage/replica.go:1701  [n1,s1,r2:/Table/1{1-2}] proposing ADD_REPLICA {NodeID:3 StoreID:3 ReplicaID:3} for range 2: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2} {NodeID:3 StoreID:3 ReplicaID:3}]
+I161011 13:47:10.911443 22 storage/replica_raftstorage.go:447  [n1,s1,r4:/Table/1{3-4}] generated snapshot 789cd190 for range 4 at index 33 in 342.669µs.
+I161011 13:47:10.921670 22 storage/store.go:2712  [n1,replicate,s1,r4:/Table/1{3-4}] streamed snapshot: kv pairs: 80, log entries: 23
+I161011 13:47:10.951136 22 storage/replica_command.go:3278  [n1,replicate,s1,r4:/Table/1{3-4}] change replicas: read existing descriptor range_id:4 start_key:"\225" end_key:"\226" replicas:<node_id:1 store_id:1 replica_id:1 > replicas:<node_id:2 store_id:2 replica_id:2 > next_replica_id:3
+I161011 13:47:10.982606 22 storage/replica.go:1701  [n1,s1,r4:/Table/1{3-4}] proposing ADD_REPLICA {NodeID:3 StoreID:3 ReplicaID:3} for range 4: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2} {NodeID:3 StoreID:3 ReplicaID:3}]
+I161011 13:47:10.990703 22 storage/replica_raftstorage.go:447  [n1,s1,r3:/Table/1{2-3}] generated snapshot 17f9a3d0 for range 3 at index 23 in 515.544µs.
+I161011 13:47:10.997818 22 storage/store.go:2712  [n1,replicate,s1,r3:/Table/1{2-3}] streamed snapshot: kv pairs: 26, log entries: 13
+I161011 13:47:11.004131 22 storage/replica_command.go:3278  [n1,replicate,s1,r3:/Table/1{2-3}] change replicas: read existing descriptor range_id:3 start_key:"\224" end_key:"\225" replicas:<node_id:1 store_id:1 replica_id:1 > replicas:<node_id:2 store_id:2 replica_id:2 > next_replica_id:3
+I161011 13:47:11.024851 22 storage/replica.go:1701  [n1,s1,r3:/Table/1{2-3}] proposing ADD_REPLICA {NodeID:3 StoreID:3 ReplicaID:3} for range 3: [{NodeID:1 StoreID:1 ReplicaID:1} {NodeID:2 StoreID:2 ReplicaID:2} {NodeID:3 StoreID:3 ReplicaID:3}]
+I161011 13:47:11.030169 22 storage/queue.go:614  [n1,replicate] purgatory is now empty
+I161011 13:47:16.244937 138 storage/store.go:3183  [n1,s1] sstables (read amplification = 0):
+I161011 13:47:16.247797 141 server/status/runtime.go:228  runtime stats: 120 MiB RSS, 94 goroutines, 9.8 MiB/3.6 MiB/21 MiB GO alloc/idle/total, 7.2 MiB/12 MiB CGO alloc/total, 0.00cgo/sec, 0.00/0.00 %(u/s)time, 0.00 %gc (10x)
+I161011 13:47:26.247462 141 server/status/runtime.go:228  runtime stats: 121 MiB RSS, 94 goroutines, 9.6 MiB/4.7 MiB/22 MiB GO alloc/idle/total, 7.6 MiB/12 MiB CGO alloc/total, 31.00cgo/sec, 0.03/0.01 %(u/s)time, 0.00 %gc (1x)
+I161011 13:47:32.237454 295 sql/event_log.go:109  [n1] Event: "create_database", target: 50, info: {DatabaseName:ivt Statement:CREATE DATABASE IF NOT EXISTS ivt User:root}
+I161011 13:47:32.322837 295 sql/event_log.go:109  [n1] Event: "create_table", target: 51, info: {TableName:TTL Statement:CREATE TABLE IF NOT EXISTS TTL (namespace STRING NOT NULL, key STRING NOT NULL, created INT NOT NULL, expires INT NOT NULL, PRIMARY KEY (namespace, key)) User:root}
+I161011 13:47:32.362023 57 storage/split_queue.go:106  [n1,split,s1,r5:/{Table/14-Max}] splitting at keys [/Table/50/0 /Table/51/0]
+I161011 13:47:32.363747 57 storage/replica_command.go:2364  [n1,split,s1,r5:/{Table/14-Max},r5:/{Table/14-Max}] initiating a split of this range at key /Table/50 [r6]
+I161011 13:47:32.419755 57 storage/replica_command.go:2364  [n1,split,s1,r5:/Table/{14-50},r6:/{Table/50-Max}] initiating a split of this range at key /Table/51 [r7]
